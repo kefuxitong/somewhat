@@ -6,7 +6,7 @@ echo $robotArea
 echo $flag
 echo $controllerAddr
 
-downloadurl=https://github.com/kefuxitong/somewhat/raw/master/wxrobot2
+downloadurl=https://raw.githubusercontent.com/kefuxitong/somewhat/master/wxrobot2
 binPath=/root/$robotId
 binFile=/root/$robotId/wxrobot2
 

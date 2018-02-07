@@ -7,11 +7,11 @@ echo $redisaddr
 echo $redispwd
 
 
-downloadurl=https://github.com/kefuxitong/somewhat/raw/master/controller
+downloadurl=https://raw.githubusercontent.com/kefuxitong/somewhat/master/controller
 binPath=~/controller/
 binFile=~/controller/controller
 
-downloadurl2=https://github.com/kefuxitong/somewhat/raw/master/interface
+downloadurl2=https://raw.githubusercontent.com/kefuxitong/somewhat/master/interface
 binPath2=~/interface/
 binFile2=~/interface/interface
 

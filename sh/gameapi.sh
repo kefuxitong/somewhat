@@ -4,7 +4,7 @@
 echo $platformId
 echo $flag
 
-downloadurl=https://github.com/kefuxitong/somewhat/raw/master/gameapi
+downloadurl=https://raw.githubusercontent.com/kefuxitong/somewhat/master/gameapi
 binPath=/root/gameapi_$platformId/
 binFile=/root/gameapi_$platformId/gameapi
 

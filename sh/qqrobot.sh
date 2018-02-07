@@ -6,7 +6,7 @@ echo $robotArea
 echo $flag
 echo $controllerAddr
 
-downloadurl=https://github.com/kefuxitong/somewhat/raw/master/qqrobot.tar.gz
+downloadurl=https://raw.githubusercontent.com/kefuxitong/somewhat/master/qqrobot.tar.gz
 binPath=~/$robotId
 binFile=~/$robotId/qqrobot
 
