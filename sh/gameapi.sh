@@ -4,7 +4,7 @@
 echo $platformId
 echo $flag
 
-downloadurl=http://git.sogame.co/zhangyuge/gameapi/raw/master/gameapi?private_token=Kq-48ozvgoX6jtpFcHGt
+downloadurl=https://github.com/kefuxitong/somewhat/raw/master/gameapi
 binPath=/root/gameapi_$platformId/
 binFile=/root/gameapi_$platformId/gameapi
 

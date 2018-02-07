@@ -7,11 +7,11 @@ echo $redisaddr
 echo $redispwd
 
 
-downloadurl=http://git.sogame.co/zhangyuge/controller/raw/master/controller?private_token=Kq-48ozvgoX6jtpFcHGt
+downloadurl=https://github.com/kefuxitong/somewhat/raw/master/controller
 binPath=~/controller/
 binFile=~/controller/controller
 
-downloadurl2=http://git.sogame.co/zhangyuge/interface/raw/master/interface?private_token=Kq-48ozvgoX6jtpFcHGt
+downloadurl2=https://github.com/kefuxitong/somewhat/raw/master/interface
 binPath2=~/interface/
 binFile2=~/interface/interface
 
