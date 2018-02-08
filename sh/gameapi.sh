@@ -29,6 +29,7 @@ if [ $flag == "setup" ]; then
     ls $binPath
 
     if [ -f $binFile ]; then
+        cd $binPath
         nohup $binFile -i=$platformId  > $binPath/logs.txt 2>&1 &
         echo "[安装]游戏api接口: <$platformId> 启动成功！"
         echo "[安装]大吉大利，今晚吃鸡"

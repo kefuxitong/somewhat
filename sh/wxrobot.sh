@@ -36,6 +36,7 @@ if [ "$flag" == "setup" ] || [ "$flag" == "update" ] ; then
     ls $binPath
 
     if [ -f $binFile ]; then
+        cd $binPath
         nohup $binFile -i=$robotId -r=$robotName -a=$robotArea -c=$controllerAddr > $binPath/logs.txt 2>&1 &
         echo "[安装]WX终端: <$robotId> 启动成功！"
         echo "[安装]大吉大利，今晚吃鸡"
