@@ -2,7 +2,6 @@
 
 echo $flag
 echo $rabbitmq
-echo $masterurl
 echo $redisaddr
 echo $redispwd
 
@@ -32,7 +31,7 @@ if [ "$flag" == "setup" ]; then
 
     if [ -f $binFile ]; then
         cd $binPath
-        nohup $binFile -rabbitmq=$rabbitmq -masterurl=$masterurl -redisaddr=$redisaddr -redispwd=$redispwd > $binPath/logs.txt 2>&1 &
+        nohup $binFile -rabbitmq=$rabbitmq -redisaddr=$redisaddr -redispwd=$redispwd > $binPath/logs.txt 2>&1 &
         echo "[安装]启动成功！"
         echo "[安装]大吉大利，今晚吃鸡"
         exit

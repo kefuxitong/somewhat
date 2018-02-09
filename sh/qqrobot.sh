@@ -1,10 +1,8 @@
 #/bin/bash 
 
 echo $robotId
-echo $robotName
 echo $robotArea
 echo $flag
-echo $controllerAddr
 
 downloadurl=https://raw.githubusercontent.com/kefuxitong/somewhat/master/qqrobot.tar.gz
 binPath=~/$robotId
@@ -38,7 +36,7 @@ if [ "$flag" == "setup" ] || [ "$flag" == "update" ] ; then
         cd $binPath
         tar -zxvf $binFile.tar.gz
         chmod +x $binFile
-        nohup $binFile -i $robotId -r $robotName -a $robotArea -c=$controllerAddr > $binPath/logs.txt 2>&1 &
+        nohup $binFile -i $robotId -a $robotArea > $binPath/logs.txt 2>&1 &
         echo "[新增]QQ终端: <$robotId> 启动成功！"
         echo "[新增]大吉大利，今晚吃鸡"
         exit

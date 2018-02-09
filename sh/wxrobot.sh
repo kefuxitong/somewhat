@@ -1,10 +1,9 @@
 #!/bin/bash
 
 echo $robotId
-echo $robotName
 echo $robotArea
 echo $flag
-echo $controllerAddr
+
 
 downloadurl=https://raw.githubusercontent.com/kefuxitong/somewhat/master/wxrobot2
 binPath=/root/$robotId
@@ -37,7 +36,7 @@ if [ "$flag" == "setup" ] || [ "$flag" == "update" ] ; then
 
     if [ -f $binFile ]; then
         cd $binPath
-        nohup $binFile -i=$robotId -r=$robotName -a=$robotArea -c=$controllerAddr > $binPath/logs.txt 2>&1 &
+        nohup $binFile -i=$robotId -a=$robotArea > $binPath/logs.txt 2>&1 &
         echo "[安装]WX终端: <$robotId> 启动成功！"
         echo "[安装]大吉大利，今晚吃鸡"
         exit
