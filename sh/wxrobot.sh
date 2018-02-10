@@ -76,21 +76,31 @@ if [ "$flag" == "delete" ]; then
     echo $binPath
     echo $binFile
 
-    if [ -f $binFile ]; then
+    echo "[更新]正在关闭 $binFile 进程和删除旧版bin文件..."
 
-        ps -ef | grep $binFile | grep -v grep | awk '{print $2}' | xargs kill -9
+    ps -ef | grep $binFile | grep -v grep | awk '{print $2}' | xargs kill -9
 
-        rm -rf $binPath
+    rm -rf $binPath
 
-        echo "[删除]大吉大利，今晚吃鸡"
-    fi
+    uniq /home/wxids.txt > /home/wxids.txt.uniq
+    cat /home/wxids.txt.uniq | while read line
+    do
+     
+        if [ "$line" != "$robotId" ]; then 
+            echo $line >> /home/new_wxids.txt
+        fi
+
+    done
+    rm -f /home/wxids.txt
+    mv /home/new_wxids.txt /home/wxids.txt
+    echo "[删除]大吉大利，今晚吃鸡"
     exit
-
 fi
 
 if [ "$flag" == "deleteall" ]; then 
 
     uniq /home/wxids.txt > /home/wxids.txt.uniq
+
     cat /home/wxids.txt.uniq | while read line
     do
         echo "[删除全部]正在卸载~/$line/wxrobot2..."
@@ -99,9 +109,10 @@ if [ "$flag" == "deleteall" ]; then
         
         rm -rf ~/$line
         
-        echo "[删除全部]大吉大利，今晚吃鸡"
-        
     done
+
+    echo "[删除全部]大吉大利，今晚吃鸡"
+
     rm -rf /home/wxids.txt.uniq
     rm -rf /home/wxids.txt
     exit
