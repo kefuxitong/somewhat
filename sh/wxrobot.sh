@@ -76,12 +76,14 @@ if [ "$flag" == "delete" ]; then
     echo $binPath
     echo $binFile
 
-    ps -ef | grep $binFile | grep -v grep | awk '{print $2}' | xargs kill -9
+    if [ -f $binFile ]; then
 
-    rm -rf $binPath
+        ps -ef | grep $binFile | grep -v grep | awk '{print $2}' | xargs kill -9
 
-    echo "[删除]大吉大利，今晚吃鸡"
+        rm -rf $binPath
 
+        echo "[删除]大吉大利，今晚吃鸡"
+    fi
     exit
 
 fi
@@ -91,13 +93,13 @@ if [ "$flag" == "deleteall" ]; then
     uniq /home/wxids.txt > /home/wxids.txt.uniq
     cat /home/wxids.txt.uniq | while read line
     do
-        echo "[删除]正在卸载~/$line/wxrobot2..."
+        echo "[删除全部]正在卸载~/$line/wxrobot2..."
 
         ps -ef | grep ~/$line/wxrobot2 | grep -v grep | awk '{print $2}' | xargs kill -9
         
         rm -rf ~/$line
         
-        echo "[删除]大吉大利，今晚吃鸡"
+        echo "[删除全部]大吉大利，今晚吃鸡"
         
     done
     rm -rf /home/wxids.txt.uniq
