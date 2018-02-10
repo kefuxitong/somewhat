@@ -45,23 +45,23 @@ if [ "$flag" == "update" ] ; then
     uniq /home/wxids.txt > /home/wxids.txt.uniq
     cat /home/wxids.txt.uniq | while read line
     do
-    echo "[更新]正在关闭~/$line/wxrobot2进程和删除旧版bin文件..."
+        echo "[更新]正在关闭~/$line/wxrobot2进程和删除旧版bin文件..."
 
-    ps -ef | grep ~/$line/wxrobot2 | grep -v grep | awk '{print $2}' | xargs kill -9
-    
-    rm -rf ~/$line
-    mkdir ~/$line
-    
-    cp /home/wxrobot2 ~/$line
-    
-    if [ -f ~/$line/wxrobot2 ]; then
-        cd ~/$line
-        nohup ~/$line/wxrobot2 -i=$line -a=$robotArea > ~/$line/logs.txt 2>&1 &
-	    echo "[更新]WX终端: <$line> 启动成功！"
-        echo "[更新]大吉大利，今晚吃鸡"
-    else
-        echo "[更新]WX终端: <$line> 失败！"
-    fi
+        ps -ef | grep ~/$line/wxrobot2 | grep -v grep | awk '{print $2}' | xargs kill -9
+        
+        rm -rf ~/$line
+        mkdir ~/$line
+        
+        cp /home/wxrobot2 ~/$line
+        
+        if [ -f ~/$line/wxrobot2 ]; then
+            cd ~/$line
+            nohup ~/$line/wxrobot2 -i=$line -a=$robotArea > ~/$line/logs.txt 2>&1 &
+            echo "[更新]WX终端: <$line> 启动成功！"
+            echo "[更新]大吉大利，今晚吃鸡"
+        else
+            echo "[更新]WX终端: <$line> 失败！"
+        fi
     done
     rm -rf /home/wxids.txt.uniq
     exit
@@ -82,6 +82,26 @@ if [ "$flag" == "delete" ]; then
 
     echo "[删除]大吉大利，今晚吃鸡"
 
+    exit
+
+fi
+
+if [ "$flag" == "deleteall" ]; then 
+
+    uniq /home/wxids.txt > /home/wxids.txt.uniq
+    cat /home/wxids.txt.uniq | while read line
+    do
+        echo "[删除]正在卸载~/$line/wxrobot2..."
+
+        ps -ef | grep ~/$line/wxrobot2 | grep -v grep | awk '{print $2}' | xargs kill -9
+        
+        rm -rf ~/$line
+        
+        echo "[删除]大吉大利，今晚吃鸡"
+        
+    done
+    rm -rf /home/wxids.txt.uniq
+    rm -rf /home/wxids.txt
     exit
 
 fi
