@@ -59,10 +59,9 @@ if [ "$flag" == "update" ] ; then
     if [ -f ~/$line/wxrobot2 ]; then
         cd ~/$line
         nohup ~/$line/wxrobot2 -i=$line -a=$robotArea -c=$controllerAddr > ~/$line/logs.txt 2>&1 &
-	echo ~/$line,$robotArea,$controllerAddr
-	echo "[更新]WX终端: <$line> 启动成功！"
+	    echo ~/$line,$robotArea,$controllerAddr
+	    echo "[更新]WX终端: <$line> 启动成功！"
         echo "[更新]大吉大利，今晚吃鸡"
-        #exit
     else
         echo "[更新]WX终端: <$line> 失败！"
     fi
