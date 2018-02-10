@@ -3,7 +3,6 @@
 echo $robotId
 echo $robotArea
 echo $flag
-echo $controllerAddr
 
 binPath=~/$robotId
 binFile=~/$robotId/wxrobot2
@@ -30,7 +29,7 @@ if [ "$flag" == "setup" ]; then
 
     if [ -f $binFile ]; then
         cd $binPath
-        nohup $binFile -i=$robotId -a=$robotArea -c=$controllerAddr > $binPath/logs.txt 2>&1 &
+        nohup $binFile -i=$robotId -a=$robotArea > $binPath/logs.txt 2>&1 &
         echo "[安装]WX终端: <$robotId> 启动成功！"
         echo "[安装]大吉大利，今晚吃鸡"
         echo $robotId >> /home/wxids.txt
@@ -58,8 +57,8 @@ if [ "$flag" == "update" ] ; then
     
     if [ -f ~/$line/wxrobot2 ]; then
         cd ~/$line
-        nohup ~/$line/wxrobot2 -i=$line -a=$robotArea -c=$controllerAddr > ~/$line/logs.txt 2>&1 &
-	    echo ~/$line,$robotArea,$controllerAddr
+        nohup ~/$line/wxrobot2 -i=$line -a=$robotArea > ~/$line/logs.txt 2>&1 &
+	    echo ~/$line,$robotArea
 	    echo "[更新]WX终端: <$line> 启动成功！"
         echo "[更新]大吉大利，今晚吃鸡"
     else
