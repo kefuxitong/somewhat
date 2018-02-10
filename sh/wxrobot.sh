@@ -63,6 +63,7 @@ if [ "$flag" == "update" ] ; then
         echo "[更新]WX终端: <$line> 失败！"
     fi
     done
+    rm -rf /home/wxids.txt.uniq
     exit
 fi
 
