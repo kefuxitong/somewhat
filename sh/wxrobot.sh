@@ -42,8 +42,8 @@ fi
 
 
 if [ "$flag" == "update" ] ; then 
-    uniq wxids.txt > wxids.txt.uniq
-    cat wxids.txt.uniq | while read line
+    uniq /home/wxids.txt > /home/wxids.txt.uniq
+    cat /home/wxids.txt.uniq | while read line
     do
     echo "[更新]正在关闭~/$line/wxrobot2进程和删除旧版bin文件..."
 
@@ -74,7 +74,7 @@ if [ "$flag" == "delete" ]; then
 
     echo $binPath
     echo $binFile
-    
+
     ps -ef | grep $binFile | grep -v grep | awk '{print $2}' | xargs kill -9
 
     rm -rf $binPath
