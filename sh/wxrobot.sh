@@ -4,17 +4,16 @@ echo $robotId
 echo $robotArea
 echo $flag
 
-binPath=~/$robotId
-binFile=~/$robotId/wxrobot2
-
-echo $binPath
-echo $binFile
-
-
 if [ "$flag" == "setup" ]; then 
+    binPath=~/$robotId
+    binFile=~/$robotId/wxrobot2
+
+    echo $binPath
+    echo $binFile
+
     if [ "$robotId" == "" ];then
-    echo "[安装]错误，robotId为空"
-    exit
+        echo "[安装]错误，robotId为空"
+        exit
     fi
 
     echo "[安装]正在关闭进程和删除旧版bin文件..."
@@ -64,13 +63,18 @@ if [ "$flag" == "update" ] ; then
         echo "[更新]WX终端: <$line> 失败！"
     fi
     done
-    rm -rf wxids.txt.uniq
     exit
 fi
 
 
 if [ "$flag" == "delete" ]; then 
 
+    binPath=~/$robotId
+    binFile=~/$robotId/wxrobot2
+
+    echo $binPath
+    echo $binFile
+    
     ps -ef | grep $binFile | grep -v grep | awk '{print $2}' | xargs kill -9
 
     rm -rf $binPath
