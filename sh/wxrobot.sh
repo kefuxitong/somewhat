@@ -4,6 +4,12 @@ echo $robotId
 echo $robotArea
 echo $flag
 
+if [ ! -f "/home/wxrobot2" ]; then
+    echo "[安装]失败，找不到安装文件。可能未上传文件至服务器"
+    exit
+fi
+
+
 if [ "$flag" == "setup" ]; then 
     binPath=~/$robotId
     binFile=~/$robotId/wxrobot2

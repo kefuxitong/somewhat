@@ -12,6 +12,11 @@ binFile=~/$bintype/$bintype
 echo $binPath
 echo $binFile
 
+if [ ! -f "/home/$bintype" ]; then
+    echo "[安装]失败，找不到安装文件。可能未上传文件至服务器"
+    exit
+fi
+
 if [ "$flag" == "setup" ]; then 
     
     echo "[安装]正在关闭进程和删除旧版bin文件..."
